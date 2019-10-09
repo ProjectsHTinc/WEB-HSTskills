@@ -250,7 +250,7 @@ Class Loginmodel extends CI_Model
        }
 
        function update_otp($phone,$otp){
-         $query="SELECT * FROM login_admin WHERE phone='$phone'";
+          $query="SELECT * FROM login_admin WHERE phone='$phone'";
          $result=$this->db->query($query);
          if($result->num_rows()==0){
            echo "Mobile Number  Not found";

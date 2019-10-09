@@ -35,7 +35,7 @@ class Apicustomermodel extends CI_Model {
         $mobileNumber = "$Phoneno";
 
         //Sender ID,While using route4 sender id should be 6 characters long.
-        $senderId = "SKILEX";
+        $senderId = "T-NULM";
 
         //Your message to send, Add URL encoding here.
         $message = urlencode($Message);
@@ -201,7 +201,7 @@ class Apicustomermodel extends CI_Model {
 			 $insert_query = "INSERT INTO customer_details (user_master_id, status) VALUES ('". $user_master_id . "','Active')";
              $insert_result = $this->db->query($insert_query);
 		}
-    $message_details = "Your SkilEx Verification code is: ".$OTP." \n\n\n 0q8GrbcslWk";
+    $message_details = "Your TNULM Verification code is: ".$OTP." \n\n\n 0q8GrbcslWk";
 		$this->sendSMS($phone_no,$message_details);
 		$response = array("status" => "success", "msg" => "Mobile OTP","msg_en"=>"","msg_ta"=>"","user_master_id"=>$user_master_id, "phone_no"=>$phone_no, "otp"=>$OTP);
 		return $response;
@@ -342,7 +342,7 @@ class Apicustomermodel extends CI_Model {
 		}
 		$enc_user_master_id = base64_encode($user_master_id);
 
-		$subject = "SKILEX - Verification Email";
+		$subject = "TNULM - Verification Email";
 		$email_message = 'Please Click the Verification link. <a href="'. base_url().'home/email_verfication/'.$enc_user_master_id.'" target="_blank" style="background-color: #478ECC; font-size:15px; font-weight: bold; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px;">Verify Your Email</a><br><br><br>';
 		$this->sendMail($email_id,$subject,$email_message);
 

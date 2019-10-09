@@ -38,7 +38,7 @@ class Apisprovidermodel extends CI_Model
         $mobileNumber = "$Phoneno";
 
         //Sender ID,While using route4 sender id should be 6 characters long.
-        $senderId = "SKILEX";
+        $senderId = "TTNULM";
 
         //Your message to send, Add URL encoding here.
         $message = urlencode($Message);

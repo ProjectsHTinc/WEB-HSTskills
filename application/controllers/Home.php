@@ -83,7 +83,7 @@ class Home extends CI_Controller {
 		$phone=$this->db->escape_str($this->input->post('phone_number'));
 		$this->input->set_cookie('cookie_phone', $phone, 3600*2);
 		$otp = substr(str_shuffle(str_repeat("0123456789", 5)), 0, 6);
-		$notes="$otp This is Skilex Verification Code.";
+		$notes="$otp TNULM Verification Code.";
 		$data=$this->smsmodel->send_sms($phone,$notes);
 		$data['res']=$this->loginmodel->update_otp($phone,$otp);
 		echo json_encode($data['res']);

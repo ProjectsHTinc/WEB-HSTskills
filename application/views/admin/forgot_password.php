@@ -41,7 +41,7 @@
             </div>
             <div class="auto-form-wrapper" id="reset_otp_form_section">
               <form action="#" method="post" id="reset_otp_form">
-                  <center> <img src="<?php echo base_url(); ?>assets/logo.png"> </center>
+                  <center> <img src="<?php echo base_url(); ?>assets/logo.png"  style="width:100%;"> </center>
                 <div class="form-group">
                   <!-- <?php echo $this->input->cookie('cookie_phone');?> -->
                   <label for="phone_number_otp">Enter OTP </label>
@@ -58,7 +58,7 @@
 
             <div class="auto-form-wrapper" id="password_form_section">
               <form action="#" method="post" id="reset_password_form">
-                  <center> <img src="<?php echo base_url(); ?>assets/logo.png"> </center>
+                  <center> <img src="<?php echo base_url(); ?>assets/logo.png" style="width:100%;"> </center>
                 <div class="form-group">
                   <label for="new_password">New Password </label>
                   <input id="new_password" class="form-control" name="new_password"  type="text" >

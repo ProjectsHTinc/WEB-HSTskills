@@ -20,7 +20,7 @@ class Apivendormodel extends CI_Model
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         // Additional headers
-        $headers .= 'From: Webmaster<admin@skilex.in>' . "\r\n";
+        $headers .= 'From: Webmaster<admin@tnulm.in>' . "\r\n";
         mail($email, $subject, $email_message, $headers);
     }
 
@@ -38,7 +38,7 @@ class Apivendormodel extends CI_Model
         $mobileNumber = "$Phoneno";
 
         //Sender ID,While using route4 sender id should be 6 characters long.
-        $senderId = "SKILEX";
+        $senderId = "TTNULM";
 
         //Your message to send, Add URL encoding here.
         $message = urlencode($Message);
@@ -254,7 +254,7 @@ class Apivendormodel extends CI_Model
             $message_details = "OTP :" . $OTP;
             $this->sendSMS($mobile,$message_details);
 
-            $subject = "SKILEX - New User Registered";
+            $subject = "TNULM - New User Registered";
             $notes = '<p>Name:<span>'.$name.'</span></p><p>Email ID:<span>'.$email.'</span></p><p>Phone:<span>'.$mobile.'</span></p>';
             $this->mailmodel->send_mail_to_skilex($subject,$notes);
 
@@ -983,7 +983,7 @@ return $response;
         foreach($ex_get_user_details_result  as $rows_user_details){}
         $get_user_name=$rows_user_details->owner_full_name;
 
-        $subject = "SKILEX - $get_user_name Uploaded new document";
+        $subject = "TNULM - $get_user_name Uploaded new document";
         $notes = '<p>Document:<span><a href="'.$document_url.'"'.$doc_proof_number.'</a></span></p>';
         $this->mailmodel->send_mail_to_skilex($subject,$notes);
 
@@ -1146,14 +1146,14 @@ return $response;
             $insert_query  = "INSERT INTO service_person_details (user_master_id, service_provider_id, full_name, serv_pers_display_status, serv_pers_verify_status, also_service_provider, status,created_at,created_by ) VALUES ('" . $serv_person_id . "','" . $user_master_id . "','" . $name . "','Inactive','Pending','N','Active',NOW(),'" . $user_master_id . "')";
             $insert_result = $this->db->query($insert_query);
 
-            $message_details = "SKILEX - Service Person Created";
+            $message_details = "TNULM - Service Person Created";
             $this->sendSMS($mobile, $message_details);
 
             //$subject = "SKILEX - Verification Email";
             //$email_message = 'Please Click the Verification link. <a href="'. base_url().'/apisprovider/email_verfication/'.$enc_user_master_id.'" target="_blank" style="background-color: #478ECC; font-size:15px; font-weight: bold; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px;">Verify Your Email</a><br><br><br>';
             //$this->sendMail($email,$subject,$email_message);
 
-            $subject = "SKILEX - New Expert Created";
+            $subject = "TNULM - New Expert Created";
             $notes = '<p>Name:<span>'.$name.'</span></p><p>Email ID:<span>'.$email.'</span></p><p>Phone:<span>'.$mobile.'</span></p>';
             $this->mailmodel->send_mail_to_skilex($subject,$notes);
 
@@ -1280,7 +1280,7 @@ return $response;
         foreach($ex_get_user_details_result  as $rows_user_details){}
         $get_user_name=$rows_user_details->owner_full_name;
 
-        $subject = "SKILEX - $get_user_name Uploaded Expert document";
+        $subject = "TNULM - $get_user_name Uploaded Expert document";
         $notes = '<p>Document:<span><a href="'.$document_url.'"'.$doc_proof_number.'</a></span></p>';
         $this->mailmodel->send_mail_to_skilex($subject,$notes);
 
@@ -1579,7 +1579,7 @@ return $response;
         }
 
         $title           = "Service Request Accepted";
-        $message_details = "SKILEX - Service Request Accepted";
+        $message_details = "TNULM - Service Request Accepted";
 
         $this->sendSMS($contact_person_number, $message_details);
 
@@ -1641,7 +1641,7 @@ return $response;
         }
 
         $title           = "Service Request Assigned";
-        $message_details = "SKILEX - Service Request Assigned";
+        $message_details = "TNULM - Service Request Assigned";
 
         $this->sendSMS($contact_person_number, $message_details);
         $this->sendSMS($sperson_mobile, $message_details);
@@ -2153,7 +2153,7 @@ return $response;
 
 
         $title           = "Service Request Cancelled";
-        $message_details = "SKILEX - Service Request Cancelled";
+        $message_details = "TNULM - Service Request Cancelled";
 
         $this->sendSMS($contact_person_number, $message_details);
         //$this->sendNotification($customer_mobile_key,$title,$message_details,$customer_mobile_type)

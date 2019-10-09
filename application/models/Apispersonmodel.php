@@ -34,7 +34,7 @@ class Apispersonmodel extends CI_Model {
         $mobileNumber = "$Phoneno";
 
         //Sender ID,While using route4 sender id should be 6 characters long.
-        $senderId = "SKILEX";
+        $senderId = "TTNULM";
 
         //Your message to send, Add URL encoding here.
         $message = urlencode($Message);
@@ -328,7 +328,7 @@ class Apispersonmodel extends CI_Model {
 		}
 		$enc_user_master_id = base64_encode($user_master_id);
 
-		$subject = "SKILEX - Verification Email";
+		$subject = "TNULM - Verification Email";
 		$email_message = 'Please Click the Verification link. <a href="'. base_url().'home/email_verfication/'.$enc_user_master_id.'" target="_blank" style="background-color: #478ECC; font-size:15px; font-weight: bold; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px;">Verify Your Email</a><br><br><br>';
 		$this->sendMail($email_id,$subject,$email_message);
 
@@ -522,7 +522,7 @@ function user_info($user_master_id){
 
 
 		//$title = "Service Request Initiated";
-		$message_details = "SKILEX - Service Request Initiated";
+		$message_details = "TNULM - Service Request Initiated";
 
 		$this->sendSMS($contact_person_number,$message_details);
 
@@ -751,7 +751,7 @@ function user_info($user_master_id){
 
 
 			//$title = "Service Request Ongoing";
-			$message_details = "SKILEX - Service Request Ongoing";
+			$message_details = "TNULM - Service Request Ongoing";
 
 			$this->sendSMS($contact_person_number,$message_details);
 
@@ -1152,7 +1152,7 @@ public function Services_list($category_id,$sub_category_id)
 
 
 		//$title = "Service Request Canceled";
-		$message_details = "SKILEX - Service Request Canceled";
+		$message_details = "TNULM - Service Request Canceled";
 
 		$this->sendSMS($contact_person_number,$message_details);
 
@@ -1363,7 +1363,7 @@ public function Services_list($category_id,$sub_category_id)
 
 
 		$title = "Service Request Completed";
-		$message_details = "SKILEX - Service Request Completed";
+		$message_details = "TNULM - Service Request Completed";
 
 	$this->sendSMS($contact_person_number,$message_details);
 
