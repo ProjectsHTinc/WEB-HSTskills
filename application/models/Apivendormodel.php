@@ -2053,7 +2053,7 @@ return $response;
     //#################### Request otp ####################//
     	public function Request_otp($user_master_id,$service_order_id)
     	{
-    		$sql = "SELECT * FROM service_orders WHERE id ='".$service_order_id."' AND serv_pers_id = '".$user_master_id."'";
+    		$sql = "SELECT * FROM service_orders WHERE id ='".$service_order_id."' AND serv_prov_id = '".$user_master_id."'";
     		$user_result = $this->db->query($sql);
 
     		if($user_result->num_rows()>0)
