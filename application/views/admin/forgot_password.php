@@ -24,7 +24,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper" id="forgot_password_mobile_number_section">
               <form action="#" method="post" id="forgot_password_form">
-                  <center> <img src="<?php echo base_url(); ?>assets/logo.png"> </center>
+                  <center> <img src="<?php echo base_url(); ?>assets/logo.png" style="width:100%;"> </center>
                   <br>
                 <div class="form-group">
                   <label for="phone_number">Enter Mobile Number</label>
