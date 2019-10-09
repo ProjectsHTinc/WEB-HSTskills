@@ -1460,6 +1460,114 @@ class Apivendor extends CI_Controller
 
     //-----------------------------------------------//
 
+    	public function service_process()
+    	{
+    	   $_POST = json_decode(file_get_contents("php://input"), TRUE);
+
+    		if(!$this->checkMethod())
+    		{
+    			return FALSE;
+    		}
+
+    		if($_POST == FALSE)
+    		{
+    			$res = array();
+    			$res["opn"] = "List assigned services";
+    			$res["scode"] = 204;
+    			$res["message"] = "Input error";
+
+    			echo json_encode($res);
+    			return;
+    		}
+    		$user_master_id = '';
+    		$service_order_id  ='';
+
+    		$user_master_id  = $this->input->post("user_master_id");
+    		$service_order_id  = $this->input->post("service_order_id");
+
+    		$data['result']=$this->apivendormodel->Service_process($user_master_id,$service_order_id);
+    		$response = $data['result'];
+    		echo json_encode($response);
+    	}
+
+    //-----------------------------------------------//
+
+    //-----------------------------------------------//
+
+    	public function request_otp()
+    	{
+    	   $_POST = json_decode(file_get_contents("php://input"), TRUE);
+
+    		if(!$this->checkMethod())
+    		{
+    			return FALSE;
+    		}
+
+    		if($_POST == FALSE)
+    		{
+    			$res = array();
+    			$res["opn"] = "List assigned services";
+    			$res["scode"] = 204;
+    			$res["message"] = "Input error";
+
+    			echo json_encode($res);
+    			return;
+    		}
+    		$user_master_id = '';
+    		$service_order_id  ='';
+
+    		$user_master_id  = $this->input->post("user_master_id");
+    		$service_order_id  = $this->input->post("service_order_id");
+
+    		$data['result']=$this->apivendormodel->Request_otp($user_master_id,$service_order_id);
+    		$response = $data['result'];
+    		echo json_encode($response);
+    	}
+
+    //-----------------------------------------------//
+
+
+    //-----------------------------------------------//
+
+    	public function start_services()
+    	{
+    	   $_POST = json_decode(file_get_contents("php://input"), TRUE);
+
+    		if(!$this->checkMethod())
+    		{
+    			return FALSE;
+    		}
+
+    		if($_POST == FALSE)
+    		{
+    			$res = array();
+    			$res["opn"] = "Start services";
+    			$res["scode"] = 204;
+    			$res["message"] = "Input error";
+
+    			echo json_encode($res);
+    			return;
+    		}
+    		$user_master_id = '';
+    		$service_order_id  ='';
+    		$service_otp = '';
+
+    		$user_master_id  = $this->input->post("user_master_id");
+    		$service_order_id  = $this->input->post("service_order_id");
+    		$service_otp = $this->input->post("service_otp");
+
+    		$data['result']=$this->apispersonmodel->Start_services($user_master_id,$service_order_id,$service_otp);
+    		$response = $data['result'];
+    		echo json_encode($response);
+    	}
+
+    //-----------------------------------------------//
+
+
+
+
+    //-----------------------------------------------//
+
     public function additional_service_orders()
     {
         $_POST = json_decode(file_get_contents("php://input"), TRUE);
