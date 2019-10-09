@@ -1525,7 +1525,8 @@ return $response;
 					services D,
 					service_timeslot E
 				WHERE
-					  AA.serv_prov_id = '" . $user_master_id . "' AND AA.status = 'Requested' AND A.id = '" . $service_order_id . "' AND AA.service_order_id = A.id AND A.`main_cat_id` = B.id AND A.`sub_cat_id` = C.id AND A.`service_id` = D.id AND A.`order_timeslot` = E.id";
+					  AA.serv_prov_id = '" . $user_master_id . "' AND AA.status = 'Requested' AND A.id = '" . $service_order_id . "'
+            AND AA.service_order_id = A.id AND A.`main_cat_id` = B.id AND A.`sub_cat_id` = C.id AND A.`service_id` = D.id AND A.`order_timeslot` = E.id";
         $serv_result    = $this->db->query($sQuery);
         $service_result = $serv_result->result();
 
@@ -1552,10 +1553,10 @@ return $response;
     public function Accept_requested_services($user_master_id, $service_order_id)
     {
 
-        $update_sql    = "UPDATE service_orders SET serv_prov_id = '" . $user_master_id . "', status  = 'Accepted', updated_by  = '" . $user_master_id . "', updated_at =NOW() WHERE id ='" . $service_order_id . "'";
+        $update_sql    = "UPDATE service_orders SET serv_prov_id = '" . $user_master_id . "', status  = 'Assigned', updated_by  = '" . $user_master_id . "', updated_at =NOW() WHERE id ='" . $service_order_id . "'";
         $update_result = $this->db->query($update_sql);
 
-        $sQuery    = "INSERT INTO service_order_history (service_order_id,serv_prov_id,status,created_at,created_by) VALUES ('" . $service_order_id . "','" . $user_master_id . "','Accepted',NOW(),'" . $user_master_id . "')";
+        $sQuery    = "INSERT INTO service_order_history (service_order_id,serv_prov_id,status,created_at,created_by) VALUES ('" . $service_order_id . "','" . $user_master_id . "','Assigned',NOW(),'" . $user_master_id . "')";
         $ins_query = $this->db->query($sQuery);
 
 
@@ -1578,8 +1579,8 @@ return $response;
             }
         }
 
-        $title           = "Service Request Accepted";
-        $message_details = "TNULM - Service Request Accepted";
+        $title           = "Service Request Assigned";
+        $message_details = "TNULM - Service Request Assigned";
 
         $this->sendSMS($contact_person_number, $message_details);
 
@@ -1588,7 +1589,7 @@ return $response;
         if ($update_result) {
             $response = array(
                 "status" => "success",
-                "msg" => "Service Request Accepted"
+                "msg" => "Service Request Assigned"
             );
         } else {
             $response = array(
