@@ -151,7 +151,7 @@
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Commando verify :</label>
+                        <label class="col-sm-4 col-form-label">Vendor verify :</label>
                         <div class="col-sm-8">
                           <select class="form-control form-control-sm border-info" id="serv_prov_verify_status" name="serv_prov_verify_status">
                             <option value="Pending">Pending</option>

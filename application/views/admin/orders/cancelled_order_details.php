@@ -153,7 +153,7 @@
                           </div>
                         </div>
                       </div>
-          
+
                     </div>
 <br>
                     <div class="row">
@@ -298,7 +298,7 @@
                           <th>Discount amt</th>
                           <th>Tax amt (CGST + SGST)</th>
                           <th>Skilex commission amt</th>
-                          <th>Commando commission amt</th>
+                          <th>Vendor commission amt</th>
                           <th>Payable amount</th>
                         </tr>
                       </thead>
@@ -417,7 +417,7 @@ $('#provider_list').change(function(){
                  success: function(response) {
                     var stats=response.status;
                      if (stats=="success") {
-                       swal('Commando assigned successfully')
+                       swal('Vendor assigned successfully')
                        setTimeout(function() {
                            location.reload();
                        }, 1000);

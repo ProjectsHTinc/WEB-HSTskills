@@ -166,7 +166,7 @@ padding: 15px;
                           </div>
                         </div>
                       </div>
-              
+
                     </div>
 <br>
                     <div class="row">
@@ -312,7 +312,7 @@ padding: 15px;
                           <th>Discount amt</th>
                           <th>Tax amt (CGST + SGST)</th>
                           <th>Skilex commission amt</th>
-                          <th>Commando commission amt</th>
+                          <th>Vendor commission amt</th>
                           <th>Payable amount</th>
                         </tr>
                       </thead>
@@ -386,7 +386,7 @@ padding: 15px;
           <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel-4">Assign Commando</h5>
+                    <h5 class="modal-title" id="exampleModalLabel-4">Assign Vendor</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -394,7 +394,7 @@ padding: 15px;
               <div class="modal-body">
                     <form action="" method="post" id="doc_status_form">
                         <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Select Commando</label>
+                        <label for="recipient-name" class="col-form-label">Select Vendor</label>
                             <select class="form-control form-control-sm" id="provider_list" name="provider_id">
                               <option value="">--Select--</option>
                           <?php foreach($res_provider_list as $rows_p_list){ ?>
@@ -464,7 +464,7 @@ $('#provider_list').change(function(){
                  success: function(response) {
                     var stats=response.status;
                      if (stats=="success") {
-                       swal('Commando assigned successfully')
+                       swal('Vendor assigned successfully')
                        setTimeout(function() {
                            location.reload();
                        }, 1000);
