@@ -1672,29 +1672,36 @@ return $response;
 
     public function List_assigned_services($user_master_id)
     {
-        $sQuery         = "SELECT
-					A.id,
-					A.service_location,
-					DATE_FORMAT(A.order_date, '%W %M %e %Y') as order_date,
-					A.status,
-					B.main_cat_name,
-					B.main_cat_ta_name,
-					C.sub_cat_name,
-					C.sub_cat_ta_name,
-					D.service_name,
-					D.service_ta_name,
-					E.from_time,
-					E.to_time,
-					F.full_name AS service_person
-				FROM
-					service_orders A,
-					main_category B,
-					sub_category C,
-					services D,
-					service_timeslot E,
-					service_person_details F
-				WHERE
-					 A.serv_prov_id = '" . $user_master_id . "' AND A.status = 'Assigned' AND A.`main_cat_id` = B.id AND A.`sub_cat_id` = C.id AND A.`service_id` = D.id AND A.`order_timeslot` = E.id AND A.serv_pers_id = F.user_master_id";
+        // $sQuery         = "SELECT
+				// 	A.id,
+				// 	A.service_location,
+				// 	DATE_FORMAT(A.order_date, '%W %M %e %Y') as order_date,
+				// 	A.status,
+				// 	B.main_cat_name,
+				// 	B.main_cat_ta_name,
+				// 	C.sub_cat_name,
+				// 	C.sub_cat_ta_name,
+				// 	D.service_name,
+				// 	D.service_ta_name,
+				// 	E.from_time,
+				// 	E.to_time,
+				// 	F.full_name AS service_person
+				// FROM
+				// 	service_orders A,
+				// 	main_category B,
+				// 	sub_category C,
+				// 	services D,
+				// 	service_timeslot E,
+				// 	service_person_details F
+				// WHERE
+				// 	 A.serv_prov_id = '$user_master_id' AND A.status = 'Assigned' AND A.main_cat_id = B.id AND A.sub_cat_id = C.id AND A.service_id = D.id AND A.order_timeslo = E.id AND A.serv_pers_id = F.user_master_id";
+        $sQuery="SELECT so.id,so.service_location,DATE_FORMAT(so.order_date, '%W %M %e %Y') as order_date,so.status,mc.main_cat_name,mc.main_cat_ta_name,sc.sub_cat_name,sc.sub_cat_ta_name,s.service_name,s.service_ta_name,st.from_time,st.to_time,spd.owner_full_name as service_person FROM service_orders as so
+        LEFT JOIN main_category as mc on mc.id=so.main_cat_id
+        LEFT JOIN sub_category as sc on sc.id=so.sub_cat_id
+        LEFT JOIN services as s on s.id=so.service_id
+        LEFT JOIN service_timeslot as st on st.id=so.order_timeslot
+        LEFT JOIN service_provider_details as spd ON spd.user_master_id=so.serv_prov_id
+        WHERE so.serv_prov_id='$user_master_id' and so.status='Assigned'";
         $serv_result    = $this->db->query($sQuery);
         $service_result = $serv_result->result();
 
