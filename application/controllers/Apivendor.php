@@ -71,7 +71,7 @@ class Apivendor extends CI_Controller
         $user_master_id = '';
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->Dashboard($user_master_id);
+        $data['result'] = $this->apivendormodel->Dashboard($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -106,7 +106,7 @@ class Apivendor extends CI_Controller
         $mobile = $this->input->post("mobile");
         $email  = $this->input->post("email");
 
-        $data['result'] = $this->apisprovidermodel->Register($name, $mobile, $email);
+        $data['result'] = $this->apivendormodel->Register($name, $mobile, $email);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -138,7 +138,7 @@ class Apivendor extends CI_Controller
 
         $phone_no = $this->input->post("phone_no");
 
-        $data['result'] = $this->apisprovidermodel->Mobile_check($phone_no);
+        $data['result'] = $this->apivendormodel->Mobile_check($phone_no);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -178,7 +178,7 @@ class Apivendor extends CI_Controller
         $device_token   = $this->input->post("device_token");
         $mobiletype     = $this->input->post("mobile_type");
 
-        $data['result'] = $this->apisprovidermodel->Login($user_master_id, $phone_no, $otp, $device_token, $mobiletype);
+        $data['result'] = $this->apivendormodel->Login($user_master_id, $phone_no, $otp, $device_token, $mobiletype);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -195,7 +195,7 @@ class Apivendor extends CI_Controller
         $user_master_id     = $this->uri->segment(3);
         $dec_user_master_id = base64_decode($user_master_id);
 
-        $data['result'] = $this->apisprovidermodel->Email_verfication($dec_user_master_id);
+        $data['result'] = $this->apivendormodel->Email_verfication($dec_user_master_id);
 
         if ($data['result']['status'] == 'success') {
             echo "Success";
@@ -229,7 +229,7 @@ class Apivendor extends CI_Controller
         $user_master_id = '';
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->Email_verifystatus($user_master_id);
+        $data['result'] = $this->apivendormodel->Email_verifystatus($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -274,8 +274,8 @@ class Apivendor extends CI_Controller
         // $state          = $this->input->post("state");
         // $zip            = $this->input->post("zip");
 
-        $data['result'] = $this->apisprovidermodel->Profile_update($user_master_id, $full_name, $gender, $email);
-        // $data['result'] = $this->apisprovidermodel->Profile_update($user_master_id, $full_name, $gender, $address, $city, $state, $zip);
+        $data['result'] = $this->apivendormodel->Profile_update($user_master_id, $full_name, $gender, $email);
+        // $data['result'] = $this->apivendormodel->Profile_update($user_master_id, $full_name, $gender, $address, $city, $state, $zip);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -298,7 +298,7 @@ class Apivendor extends CI_Controller
 		$profilepic = $uploadPicdir.$profileFileName;
 		move_uploaded_file($_FILES['profile_pic']['tmp_name'], $profilepic);
 
-        $data['result'] = $this->apisprovidermodel->Profile_pic_upload($user_master_id, $profileFileName);
+        $data['result'] = $this->apivendormodel->Profile_pic_upload($user_master_id, $profileFileName);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -329,7 +329,7 @@ class Apivendor extends CI_Controller
 
 
 		$user_master_id  = $this->input->post("user_master_id");
-		$data['result']=$this->apisprovidermodel->user_info($user_master_id);
+		$data['result']=$this->apivendormodel->user_info($user_master_id);
 		$response = $data['result'];
 		echo json_encode($response);
 	}
@@ -363,7 +363,7 @@ class Apivendor extends CI_Controller
         $sp_lat = $this->input->post("lat");
         $sp_lon = $this->input->post("lon");
 
-        $data['result'] = $this->apisprovidermodel->Provider_status($user_master_id, $sp_lat, $sp_lon);
+        $data['result'] = $this->apivendormodel->Provider_status($user_master_id, $sp_lat, $sp_lon);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -394,7 +394,7 @@ class Apivendor extends CI_Controller
         $user_master_id = '';
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->Category_list($user_master_id);
+        $data['result'] = $this->apivendormodel->Category_list($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -424,7 +424,7 @@ class Apivendor extends CI_Controller
         $category_id = '';
         $category_id = $this->input->post("category_id");
 
-        $data['result'] = $this->apisprovidermodel->Sub_category_list($category_id);
+        $data['result'] = $this->apivendormodel->Sub_category_list($category_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -457,7 +457,7 @@ class Apivendor extends CI_Controller
         $category_id     = $this->input->post("category_id");
         $sub_category_id = $this->input->post("sub_category_id");
 
-        $data['result'] = $this->apisprovidermodel->Services_list($category_id, $sub_category_id);
+        $data['result'] = $this->apivendormodel->Services_list($category_id, $sub_category_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -490,7 +490,7 @@ class Apivendor extends CI_Controller
         $category_id    = $this->input->post("category_ids");
 
 
-        $data['result'] = $this->apisprovidermodel->Serv_prov_category_add($user_master_id, $category_id);
+        $data['result'] = $this->apivendormodel->Serv_prov_category_add($user_master_id, $category_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -524,7 +524,7 @@ class Apivendor extends CI_Controller
     $sub_category_id  = $this->input->post("sub_category_id");
     $service_id  = $this->input->post("service_id");
 
-    $data['result']=$this->apisprovidermodel->Serv_prov_services_add($user_master_id,$category_id,$sub_category_id,$service_id);
+    $data['result']=$this->apivendormodel->Serv_prov_services_add($user_master_id,$category_id,$sub_category_id,$service_id);
     $response = $data['result'];
     echo json_encode($response);
     }*/
@@ -556,7 +556,7 @@ class Apivendor extends CI_Controller
         $user_master_id = $this->input->post("user_master_id");
 
 
-        $data['result'] = $this->apisprovidermodel->List_prov_person_category($user_master_id);
+        $data['result'] = $this->apivendormodel->List_prov_person_category($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -588,7 +588,7 @@ class Apivendor extends CI_Controller
         $user_master_id = $this->input->post("user_master_id");
         $company_status = $this->input->post("company_status");
 
-        $data['result'] = $this->apisprovidermodel->Update_company_status($user_master_id, $company_status);
+        $data['result'] = $this->apivendormodel->Update_company_status($user_master_id, $company_status);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -623,7 +623,7 @@ class Apivendor extends CI_Controller
         $no_of_service_person = $this->input->post("no_of_service_person");
         $also_service_person  = $this->input->post("also_service_person");
 
-        $data['result'] = $this->apisprovidermodel->Add_individual_status($user_master_id, $no_of_service_person, $also_service_person);
+        $data['result'] = $this->apivendormodel->Add_individual_status($user_master_id, $no_of_service_person, $also_service_person);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -671,7 +671,7 @@ class Apivendor extends CI_Controller
         $company_info          = $this->input->post("company_info");
         $company_building_type = $this->input->post("company_building_type");
 
-        $data['result'] = $this->apisprovidermodel->Add_company_status($user_master_id, $company_name, $no_of_service_person, $company_address, $company_city, $company_state, $company_zip, $company_info, $company_building_type);
+        $data['result'] = $this->apivendormodel->Add_company_status($user_master_id, $company_name, $no_of_service_person, $company_address, $company_city, $company_state, $company_zip, $company_info, $company_building_type);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -701,7 +701,7 @@ class Apivendor extends CI_Controller
 
         $company_type = $this->input->post("company_type");
 
-        $data['result'] = $this->apisprovidermodel->List_idaddress_proofs($company_type);
+        $data['result'] = $this->apivendormodel->List_idaddress_proofs($company_type);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -732,7 +732,7 @@ class Apivendor extends CI_Controller
 
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->List_building_proofs($user_master_id);
+        $data['result'] = $this->apivendormodel->List_building_proofs($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -756,7 +756,7 @@ class Apivendor extends CI_Controller
         $documentFile     = $uploaddir . $documentFileName;
         move_uploaded_file($_FILES['document_file']['tmp_name'], $documentFile);
 
-        $data['result'] = $this->apisprovidermodel->Upload_doc($user_master_id, $doc_master_id, $doc_proof_number, $documentFileName);
+        $data['result'] = $this->apivendormodel->Upload_doc($user_master_id, $doc_master_id, $doc_proof_number, $documentFileName);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -798,7 +798,7 @@ class Apivendor extends CI_Controller
         $acc_no         = $this->input->post("acc_no");
         $ifsc_code      = $this->input->post("ifsc_code");
 
-        $data['result'] = $this->apisprovidermodel->Update_provider_bank_detail($user_master_id, $bank_name, $branch_name, $acc_no, $ifsc_code);
+        $data['result'] = $this->apivendormodel->Update_provider_bank_detail($user_master_id, $bank_name, $branch_name, $acc_no, $ifsc_code);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -826,7 +826,7 @@ class Apivendor extends CI_Controller
 
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->List_provider_doc($user_master_id);
+        $data['result'] = $this->apivendormodel->List_provider_doc($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -857,7 +857,7 @@ class Apivendor extends CI_Controller
 
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->provider_active_status_update($user_master_id);
+        $data['result'] = $this->apivendormodel->provider_active_status_update($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -894,7 +894,7 @@ class Apivendor extends CI_Controller
         $mobile         = $this->input->post("mobile");
         $email          = $this->input->post("email");
 
-        $data['result'] = $this->apisprovidermodel->Create_serv_person($user_master_id, $name, $mobile, $email);
+        $data['result'] = $this->apivendormodel->Create_serv_person($user_master_id, $name, $mobile, $email);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -943,7 +943,7 @@ class Apivendor extends CI_Controller
         $edu_qualification = $this->input->post("edu_qualification");
 
 
-        $data['result'] = $this->apisprovidermodel->Update_serv_person_details($user_master_id, $serv_person_id, $full_name, $gender, $address, $city, $pincode, $state, $language_known, $edu_qualification);
+        $data['result'] = $this->apivendormodel->Update_serv_person_details($user_master_id, $serv_person_id, $full_name, $gender, $address, $city, $pincode, $state, $language_known, $edu_qualification);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -973,7 +973,7 @@ class Apivendor extends CI_Controller
 
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->List_serv_persons($user_master_id);
+        $data['result'] = $this->apivendormodel->List_serv_persons($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1004,7 +1004,7 @@ class Apivendor extends CI_Controller
 
         $serv_pres_id = $this->input->post("serv_pres_id");
 
-        $data['result'] = $this->apisprovidermodel->Serv_person_details($serv_pres_id);
+        $data['result'] = $this->apivendormodel->Serv_person_details($serv_pres_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1030,7 +1030,7 @@ class Apivendor extends CI_Controller
         $documentFile     = $uploaddir . $documentFileName;
         move_uploaded_file($_FILES['document_file']['tmp_name'], $documentFile);
 
-        $data['result'] = $this->apisprovidermodel->Serv_person_upload_doc($user_master_id, $serv_person_id, $doc_master_id, $doc_proof_number, $documentFileName);
+        $data['result'] = $this->apivendormodel->Serv_person_upload_doc($user_master_id, $serv_person_id, $doc_master_id, $doc_proof_number, $documentFileName);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1060,7 +1060,7 @@ class Apivendor extends CI_Controller
 
         $serv_person_id = $this->input->post("serv_person_id");
 
-        $data['result'] = $this->apisprovidermodel->List_persons_doc($serv_person_id);
+        $data['result'] = $this->apivendormodel->List_persons_doc($serv_person_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1095,7 +1095,7 @@ class Apivendor extends CI_Controller
         $serv_person_id = $this->input->post("serv_person_id");
         $category_id    = $this->input->post("category_ids");
 
-        $data['result'] = $this->apisprovidermodel->Serv_pers_category_add($user_master_id, $serv_person_id, $category_id);
+        $data['result'] = $this->apivendormodel->Serv_pers_category_add($user_master_id, $serv_person_id, $category_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1131,7 +1131,7 @@ class Apivendor extends CI_Controller
     $sub_category_id  = $this->input->post("sub_category_id");
     $service_id  = $this->input->post("service_id");
 
-    $data['result']=$this->apisprovidermodel->Serv_pers_services_add($user_master_id,$serv_person_id,$category_id,$sub_category_id,$service_id);
+    $data['result']=$this->apivendormodel->Serv_pers_services_add($user_master_id,$serv_person_id,$category_id,$sub_category_id,$service_id);
     $response = $data['result'];
     echo json_encode($response);
     } */
@@ -1161,7 +1161,7 @@ class Apivendor extends CI_Controller
 
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->List_requested_services($user_master_id);
+        $data['result'] = $this->apivendormodel->List_requested_services($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1194,7 +1194,7 @@ class Apivendor extends CI_Controller
         $user_master_id   = $this->input->post("user_master_id");
         $service_order_id = $this->input->post("service_order_id");
 
-        $data['result'] = $this->apisprovidermodel->Detail_requested_services($user_master_id, $service_order_id);
+        $data['result'] = $this->apivendormodel->Detail_requested_services($user_master_id, $service_order_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1227,7 +1227,7 @@ class Apivendor extends CI_Controller
         $user_master_id   = $this->input->post("user_master_id");
         $service_order_id = $this->input->post("service_order_id");
 
-        $data['result'] = $this->apisprovidermodel->Accept_requested_services($user_master_id, $service_order_id);
+        $data['result'] = $this->apivendormodel->Accept_requested_services($user_master_id, $service_order_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1262,7 +1262,7 @@ class Apivendor extends CI_Controller
         $service_order_id  = $this->input->post("service_order_id");
         $service_person_id = $this->input->post("serv_person_id");
 
-        $data['result'] = $this->apisprovidermodel->Assigned_accepted_services($user_master_id, $service_order_id, $service_person_id);
+        $data['result'] = $this->apivendormodel->Assigned_accepted_services($user_master_id, $service_order_id, $service_person_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1292,7 +1292,7 @@ class Apivendor extends CI_Controller
 
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->List_assigned_services($user_master_id);
+        $data['result'] = $this->apivendormodel->List_assigned_services($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1324,7 +1324,7 @@ class Apivendor extends CI_Controller
         $user_master_id   = $this->input->post("user_master_id");
         $service_order_id = $this->input->post("service_order_id");
 
-        $data['result'] = $this->apisprovidermodel->Detail_assigned_services($user_master_id, $service_order_id);
+        $data['result'] = $this->apivendormodel->Detail_assigned_services($user_master_id, $service_order_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1354,7 +1354,7 @@ class Apivendor extends CI_Controller
 
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->List_ongoing_services($user_master_id);
+        $data['result'] = $this->apivendormodel->List_ongoing_services($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1386,7 +1386,7 @@ class Apivendor extends CI_Controller
         $user_master_id   = $this->input->post("user_master_id");
         $service_order_id = $this->input->post("service_order_id");
 
-        $data['result'] = $this->apisprovidermodel->Detail_initiated_services($user_master_id, $service_order_id);
+        $data['result'] = $this->apivendormodel->Detail_initiated_services($user_master_id, $service_order_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1418,7 +1418,7 @@ class Apivendor extends CI_Controller
         $user_master_id   = $this->input->post("user_master_id");
         $service_order_id = $this->input->post("service_order_id");
 
-        $data['result'] = $this->apisprovidermodel->Detail_ongoing_services($user_master_id, $service_order_id);
+        $data['result'] = $this->apivendormodel->Detail_ongoing_services($user_master_id, $service_order_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1448,7 +1448,7 @@ class Apivendor extends CI_Controller
         $service_order_id = '';
         $service_order_id = $this->input->post("service_order_id");
 
-        $data['result'] = $this->apisprovidermodel->Additional_service_orders($service_order_id);
+        $data['result'] = $this->apivendormodel->Additional_service_orders($service_order_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1478,7 +1478,7 @@ class Apivendor extends CI_Controller
 
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->List_completed_services($user_master_id);
+        $data['result'] = $this->apivendormodel->List_completed_services($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1510,7 +1510,7 @@ class Apivendor extends CI_Controller
         $user_master_id   = $this->input->post("user_master_id");
         $service_order_id = $this->input->post("service_order_id");
 
-        $data['result'] = $this->apisprovidermodel->Detail_completed_services($user_master_id, $service_order_id);
+        $data['result'] = $this->apivendormodel->Detail_completed_services($user_master_id, $service_order_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1540,7 +1540,7 @@ class Apivendor extends CI_Controller
         $user_type = '';
         $user_type = $this->input->post("user_type");
 
-        $data['result'] = $this->apisprovidermodel->Cancel_service_reasons($user_type);
+        $data['result'] = $this->apivendormodel->Cancel_service_reasons($user_type);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1577,7 +1577,7 @@ class Apivendor extends CI_Controller
         $cancel_master_id = $this->input->post("cancel_master_id");
         $comments         = $this->input->post("comments");
 
-        $data['result'] = $this->apisprovidermodel->Cancel_services($user_master_id, $service_order_id, $cancel_master_id, $comments);
+        $data['result'] = $this->apivendormodel->Cancel_services($user_master_id, $service_order_id, $cancel_master_id, $comments);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1608,7 +1608,7 @@ class Apivendor extends CI_Controller
 
         $user_master_id = $this->input->post("user_master_id");
 
-        $data['result'] = $this->apisprovidermodel->List_canceled_services($user_master_id);
+        $data['result'] = $this->apivendormodel->List_canceled_services($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1640,7 +1640,7 @@ class Apivendor extends CI_Controller
         $user_master_id   = $this->input->post("user_master_id");
         $service_order_id = $this->input->post("service_order_id");
 
-        $data['result'] = $this->apisprovidermodel->Detail_canceled_services($user_master_id, $service_order_id);
+        $data['result'] = $this->apivendormodel->Detail_canceled_services($user_master_id, $service_order_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1676,7 +1676,7 @@ class Apivendor extends CI_Controller
         $serv_lat      = $this->input->post("serv_lat");
         $serv_lon      = $this->input->post("serv_lon");
 
-        $data['result'] = $this->apisprovidermodel->Vendor_status_update($serv_pro_id, $online_status, $serv_lat, $serv_lon);
+        $data['result'] = $this->apivendormodel->Vendor_status_update($serv_pro_id, $online_status, $serv_lat, $serv_lon);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1707,7 +1707,7 @@ class Apivendor extends CI_Controller
         $user_master_id = $this->input->post("user_master_id");
 
 
-        $data['result'] = $this->apisprovidermodel->Transaction_details($user_master_id);
+        $data['result'] = $this->apivendormodel->Transaction_details($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1739,7 +1739,7 @@ class Apivendor extends CI_Controller
         $user_master_id = $this->input->post("user_master_id");
 
 
-        $data['result'] = $this->apisprovidermodel->Transaction_list($user_master_id);
+        $data['result'] = $this->apivendormodel->Transaction_list($user_master_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
@@ -1773,7 +1773,7 @@ class Apivendor extends CI_Controller
         $daily_payment_id = $this->input->post("daily_payment_id");
 
 
-        $data['result'] = $this->apisprovidermodel->View_transaction_details($user_master_id, $daily_payment_id);
+        $data['result'] = $this->apivendormodel->View_transaction_details($user_master_id, $daily_payment_id);
         $response       = $data['result'];
         echo json_encode($response);
     }
