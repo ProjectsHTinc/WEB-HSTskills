@@ -13,7 +13,14 @@ Class Dashboardmodel extends CI_Model
 
        function get_number_staff(){
          // $query="SELECT count(*) as provider_count from login_users where user_type=3 and document_verify='Y' and status='Active'";
-          $query="SELECT count(*) as staff_count from login_admin where admin_type IN (2,6,7) and status='Active'";         
+          $query="SELECT count(*) as staff_count from login_admin where admin_type IN (2,6,7) and status='Active'";
+         $resultset=$this->db->query($query);
+         return $resultset->result();
+       }
+
+       function get_number_provider(){
+         $query="SELECT count(*) as provider_count from login_users where user_type=3 and document_verify='Y' and status='Active'";
+        //  $query="SELECT count(*) as staff_count from login_admin where admin_type IN (2,6,7) and status='Active'";
          $resultset=$this->db->query($query);
          return $resultset->result();
        }

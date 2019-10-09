@@ -20,8 +20,8 @@
                 <th>Name <br> Phone No <br> Email</th>
                 <th>Document Verify status</th>
                 <!-- <th>profile_pic</th> -->
-                <th>Company status</th>
-                <th>Service Expert Count</th>
+                <!-- <th>Company status</th> -->
+                <!-- <th>Service Expert Count</th> -->
                 <th>Deposit status</th>
                 <th>Login Status</th>
                 <th>Actions</th>
@@ -36,8 +36,8 @@
                 <td><?php echo $rows->owner_full_name; ?> <br><br> <?php echo $rows->phone_no; ?><br><br> <?php echo $rows->email; ?></td>
                 <td><?php echo $rows->serv_prov_verify_status; ?></td>
                 <!-- <td><?php echo $rows->profile_pic; ?></td> -->
-                <td><?php echo $rows->company_status; ?></td>
-                <td><?php echo $rows->no_of_service_person; ?></td>
+                <!-- <td><?php echo $rows->company_status; ?></td> -->
+                <!-- <td><?php echo $rows->no_of_service_person; ?></td> -->
                 <td>
                   <?php if($rows->deposit_status=='Unpaid'){ ?>
                     <button type="button" class="badge badge-danger">Unpaid</button>
@@ -56,9 +56,9 @@
                 <td>
                   <a title="Edit" href="<?php echo base_url(); ?>verifyprocess/get_vendor_details/<?php echo base64_encode($rows->user_master_id*98765); ?>"><i class="fa fa-edit"></i></a> &nbsp;
                   <a title="View Documents " href="<?php echo base_url(); ?>verifyprocess/get_vendor_doc_status/<?php echo $rows->company_status; ?>/<?php echo base64_encode($rows->user_master_id*98765); ?>"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>&nbsp;
-                                  <a  title="View Experts list" href="<?php echo base_url(); ?>verifyprocess/service_person_list/<?php echo base64_encode($rows->user_master_id*98765); ?>"><i class="fa fa-user" aria-hidden="true"></i></a>&nbsp;
+                  <!-- <a  title="View Experts list" href="<?php echo base_url(); ?>verifyprocess/service_person_list/<?php echo base64_encode($rows->user_master_id*98765); ?>"><i class="fa fa-user" aria-hidden="true"></i></a>&nbsp; -->
 
-                      <a  title="Category list" href="<?php echo base_url(); ?>verifyprocess/get_skills_details/<?php echo base64_encode($rows->user_master_id*98765); ?>"><i class="fa fa-list-ol" aria-hidden="true"></i></a>
+            <a  title="Category list" href="<?php echo base_url(); ?>verifyprocess/get_skills_details/<?php echo base64_encode($rows->user_master_id*98765); ?>"><i class="fa fa-list-ol" aria-hidden="true"></i></a>
 
 
 

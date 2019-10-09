@@ -156,32 +156,17 @@ padding: 15px;
                       </div>
                     </div>
                     <br>
-                    <h5 class="card-title">Assigned Commando and  Person details</h5>
+                    <h5 class="card-title">Assigned Vendors details</h5>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-4 col-form-label">Service Commando</label>
+                          <label class="col-sm-4 col-form-label">Service Vendor</label>
                           <div class="col-sm-8">
                                 <p class="val_label"><?php echo $rows->owner_full_name; ?></p>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Service Person</label>
-                          <div class="col-sm-4">
-                            <?php if(empty($rows->profile_pic)){ ?>
-                            <img src="<?php echo base_url(); ?>assets/profile/dummy.jpg" style="width:100px;" class="img-circle">
-                            <?php }else{ ?>
-                            <img src="<?php echo base_url(); ?>assets/persons/<?php echo $rows->profile_pic; ?>" style="width:100px;" class="img-circle">
-                          <?php  }  ?>
-
-                          </div>
-                          <div class="col-sm-4">
-                                <p class="val_label"><?php echo $rows->full_name; ?></p>
-                          </div>
-                        </div>
-                      </div>
+              
                     </div>
 <br>
                     <div class="row">

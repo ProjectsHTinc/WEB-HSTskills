@@ -92,9 +92,8 @@ class Verifyprocess extends CI_Controller {
 		 $user_id=$this->session->userdata('user_id');
 		 $user_type=$this->session->userdata('user_role');
 		 if($user_type=='1'||$user_type=='2'||$user_type=='7'){
-			  $company_status=$this->uri->segment(3);
-			 	$ser_pro_id=$this->uri->segment(4);
-		  	 $data['res']=$this->verificationmodel->get_doc_details($ser_pro_id,$company_status);
+			 $ser_pro_id=$this->uri->segment(3);
+		   $data['res']=$this->verificationmodel->get_doc_details($ser_pro_id);
 			 $this->load->view('admin/admin_header');
 			 $this->load->view('admin/verify/document_list',$data);
 			 $this->load->view('admin/admin_footer');

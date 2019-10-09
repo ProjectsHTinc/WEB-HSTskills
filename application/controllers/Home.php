@@ -23,6 +23,7 @@ class Home extends CI_Controller {
 		$user_id=$this->session->userdata('user_id');
 		$user_type=$this->session->userdata('user_role');
 		$data['res_staff_count']=$this->dashboardmodel->get_number_staff();
+			$data['res_provider_count']=$this->dashboardmodel->get_number_provider();
 		$data['res_person_count']=$this->dashboardmodel->get_number_persons();
 		$data['res_cust_count']=$this->dashboardmodel->get_number_customer_count();
 		$data['res_paid_count']=$this->dashboardmodel->get_number_paid_orders();

@@ -49,12 +49,12 @@
                     <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
                     <img src="<?php echo base_url(); ?>assets/admin/images/total_serviceman.png" class="img-responsive dash_icons">
                       <div class="wrapper text-center text-sm-left">
-                        <a href="<?php echo base_url(); ?>home/get_all_person_list"><p class="card-text mb-0">Total Experts </p></a>
+                        <a href="<?php echo base_url(); ?>home/get_all_person_list"><p class="card-text mb-0">Total Vendors </p></a>
                         <div class="fluid-container">
-                          <?php if(empty($res_person_count)){
+                          <?php if(empty($res_provider_count)){
                           }else{
-                            foreach($res_person_count as $rows_person_count){} ?>
-                              <h3 class="card-title mb-0"><?php echo $rows_person_count->person_count; ?></h3>
+                            foreach($res_provider_count as $rows_vendor_count){} ?>
+                              <h3 class="card-title mb-0"><?php echo $rows_vendor_count->provider_count; ?></h3>
                           <?php } ?>
                         </div>
                       </div>

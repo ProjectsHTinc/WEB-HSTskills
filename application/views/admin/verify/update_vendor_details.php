@@ -5,8 +5,8 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
               <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>dashboard">Dashboard</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>verifyprocess/get_vendor_verify_list">Commando list </a></li>
-              <li class="breadcrumb-item active" aria-current="page"><span>View Commando details</span></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>verifyprocess/get_vendor_verify_list">Vendor list </a></li>
+              <li class="breadcrumb-item active" aria-current="page"><span>View Vendor details</span></li>
             </ol>
           </nav>
           <div class="row">
@@ -14,7 +14,7 @@
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">View Commando details <a href="javascript:window.history.go(-1);" class="btn go_back_btn pull-right">Back</a></h4>
+                  <h4 class="card-title">View Vendor details <a href="javascript:window.history.go(-1);" class="btn go_back_btn pull-right">Back</a></h4>
                   <?php foreach($res as $rows){} ?>
                   <div class="row">
                       <div class="col-md-4">
@@ -80,38 +80,7 @@
                       </div>
                     </div>
 
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group row">
-                          <label class="col-sm-4 col-form-label">Company :</label>
-                          <div class="col-sm-8">
-                                <input type="text" class="form-control" readonly value="<?php echo $rows->company_status; ?>">
-                            </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group row">
-                          <label class="col-sm-4 col-form-label">Service Expert Count :</label>
-                          <div class="col-sm-8">
-                                <input type="text" class="form-control" readonly value="<?php echo $rows->no_of_service_person; ?>">
-                            </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group row">
-                          <label class="col-sm-4 col-form-label"></label>
-                          <div class="col-sm-8">
-                                <!-- <input type="text" class="form-control" readonly value="<?php echo $rows->also_service_person; ?>"> -->
-                                <div class="form-check form-check-flat">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" disabled=""<?php if($rows->also_service_person === 'Y') echo 'checked="checked"';?>>
-                              Aslo Service Expert
-                              <i class="input-helper"></i></label>
-                            </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
+
 
                       <h4 class="card-title">Bank Details</h4>
                     <div class="row">
@@ -126,7 +95,7 @@
                       </div>
                       <div class="col-md-4">
                         <div class="form-group row">
-                          <label class="col-sm-4 col-form-label">Branch Name :</label>
+                          <label class="col-sm-4 col-form-label">Branch Name:</label>
                           <div class="col-sm-8">
                                   <input type="text" class="form-control" readonly value="<?php echo $rows->bank_branch_name; ?>">
                           </div>
