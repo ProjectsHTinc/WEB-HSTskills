@@ -985,7 +985,7 @@ return $response;
 
         $subject = "TNULM - $get_user_name Uploaded new document";
         $notes = '<p>Document:<span><a href="'.$document_url.'"'.$doc_proof_number.'</a></span></p>';
-        $this->mailmodel->send_mail_to_skilex($subject,$notes);
+        // $this->mailmodel->send_mail_to_skilex($subject,$notes);
 
         $sQuery    = "INSERT INTO document_notes(user_master_id,doc_detail_id,notes,status,created_at,created_by) VALUES ('" . $user_master_id . "','" . $last_insert_id . "','Uploaded','Active',NOW(),'" . $user_master_id . "')";
         $ins_query = $this->db->query($sQuery);
@@ -1282,7 +1282,7 @@ return $response;
 
         $subject = "TNULM - $get_user_name Uploaded Expert document";
         $notes = '<p>Document:<span><a href="'.$document_url.'"'.$doc_proof_number.'</a></span></p>';
-        $this->mailmodel->send_mail_to_skilex($subject,$notes);
+        // $this->mailmodel->send_mail_to_skilex($subject,$notes);
 
         $sQuery    = "INSERT INTO document_notes(user_master_id,doc_detail_id,notes,status,created_at,created_by) VALUES ('" . $serv_person_id . "','" . $last_insert_id . "','Uploaded','Active',NOW(),'" . $user_master_id . "')";
         $ins_query = $this->db->query($sQuery);
