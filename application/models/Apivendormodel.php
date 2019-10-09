@@ -1753,7 +1753,7 @@ return $response;
 				// 	service_person_details F
 				// WHERE
 				// 	 A.id = '" . $service_order_id . "' AND A.serv_prov_id = '" . $user_master_id . "' AND A.status = 'Assigned' AND A.`main_cat_id` = B.id AND A.`sub_cat_id` = C.id AND A.`service_id` = D.id AND A.`order_timeslot` = E.id AND A.serv_pers_id = F.user_master_id";
-        $sQuery="SELECT so.id,so.service_location,DATE_FORMAT(so.order_date, '%W %M %e %Y') as order_date,so.status,mc.main_cat_name,mc.main_cat_ta_name,sc.sub_cat_name,sc.sub_cat_ta_name,s.service_name,s.service_ta_name,st.from_time,st.to_time,spd.owner_full_name as service_person FROM service_orders as so
+        $sQuery="SELECT so.id,so.service_location,so.contact_person_name,so.contact_person_number,DATE_FORMAT(so.order_date, '%W %M %e %Y') as order_date,so.status,mc.main_cat_name,mc.main_cat_ta_name,sc.sub_cat_name,sc.sub_cat_ta_name,s.service_name,s.service_ta_name,st.from_time,st.to_time,spd.owner_full_name as service_person FROM service_orders as so
         LEFT JOIN main_category as mc on mc.id=so.main_cat_id
         LEFT JOIN sub_category as sc on sc.id=so.sub_cat_id
         LEFT JOIN services as s on s.id=so.service_id
