@@ -2256,6 +2256,120 @@ return $response;
     	}
 
     //#################### Complete services End ####################//
+    //#################### Upload service bills ####################//
+    	public function Upload_service_bills($user_master_id,$service_order_id,$documentFileName)
+    	{
+    		$sQuery = "INSERT INTO service_order_bills(service_order_id,serv_pers_id,file_name,created_at,created_by) VALUES ('". $service_order_id . "','". $user_master_id . "','". $documentFileName . "',NOW(),'". $user_master_id . "')";
+    		$ins_query = $this->db->query($sQuery);
+    		$last_insert_id = $this->db->insert_id();
+    		$document_url = base_url().'assets/bills/'.$documentFileName;
+
+    		$response = array("status" => "success", "msg" => "Service Bill Uploaded");
+    		return $response;
+    	}
+    //#################### Upload service bills End ####################//
+
+    //#################### List completed services ####################//
+
+    	public function List_completed_services($user_master_id)
+    	{
+    		$sQuery = "SELECT
+    					A.id,
+    					A.service_location,
+    					DATE_FORMAT(A.order_date, '%W %M %e %Y') as order_date,
+    					A.status,
+    					B.main_cat_name,
+    					B.main_cat_ta_name,
+    					C.sub_cat_name,
+    					C.sub_cat_ta_name,
+    					D.service_name,
+    					D.service_ta_name,
+    					E.from_time,
+    					E.to_time,
+    					F.owner_full_name AS service_provider,
+    					G.status AS Payment_status
+    				FROM
+    					service_orders A,
+    					main_category B,
+    					sub_category C,
+    					services D,
+    					service_timeslot E,
+    					service_provider_details F,
+    					service_payments G
+    				WHERE
+    					 A.serv_prov_id = '$user_master_id' AND (A.status = 'Completed' OR A.Status = 'Paid') AND A.main_cat_id = B.id AND A.sub_cat_id = C.id AND A.service_id = D.id AND A.order_timeslot = E.id
+               AND A.serv_prov_id = F.user_master_id AND A.id=G.service_order_id";
+    		$serv_result = $this->db->query($sQuery);
+    		$service_result = $serv_result->result();
+
+    		if($serv_result->num_rows()>0) {
+    			$response = array("status" => "success", "msg" => "Service Order List", "list_services_order"=>$service_result);
+    		} else {
+    			$response = array("status" => "error", "msg" => "Service Order List Not found");
+    		}
+    		return $response;
+    	}
+
+    //#################### List completed services End ####################//
+
+
+
+    //#################### Detail completed services ####################//
+
+    	public function Detail_completed_services($user_master_id,$service_order_id)
+    	{
+    		$sQuery = "SELECT
+    					A.id,
+    					A.service_location,
+    					DATE_FORMAT(A.order_date, '%W %M %e %Y') as order_date,
+    					A.contact_person_name,
+    					A.contact_person_number,
+    					A.service_rate_card,
+    					H.owner_full_name AS service_person,
+    					B.main_cat_name,
+    					B.main_cat_ta_name,
+    					C.sub_cat_name,
+    					C.sub_cat_ta_name,
+    					D.service_name,
+    					D.service_ta_name,
+    					E.from_time,
+    					E.to_time,
+    					A.status,
+    					A.start_datetime,
+    					A.finish_datetime,
+    					A.material_notes,
+    					H.owner_full_name AS service_provider
+    				FROM
+    					service_orders A,
+    					main_category B,
+    					sub_category C,
+    					services D,
+    					service_timeslot E,
+    					service_provider_details H
+    				WHERE
+    					 A.id = '$service_order_id' AND A.serv_prov_id  = '$user_master_id' AND (A.status = 'Completed' OR A.status= 'Paid') AND A.main_cat_id = B.id AND A.sub_cat_id = C.id AND A.service_id = D.id
+               AND A.`order_timeslot` = E.id AND A.serv_prov_id = H.user_master_id";
+    		$serv_result = $this->db->query($sQuery);
+    		$service_result = $serv_result->result();
+
+    		$addtional_serv = "SELECT * FROM service_order_additional WHERE service_order_id = '".$service_order_id."' AND status = 'Active'";
+    		$addtional_serv_res = $this->db->query($addtional_serv);
+    		$addtional_serv_count = $addtional_serv_res->num_rows();
+
+    		$trans_query = "SELECT * FROM service_payments WHERE service_order_id = '".$service_order_id."'";
+    		$trans_res = $this->db->query($trans_query);
+    		$trans_result = $trans_res->result();
+
+    		if($serv_result->num_rows()>0) {
+    			$response = array("status" => "success", "msg" => "Service Order List", "detail_services_order"=>$service_result, "addtional_services_count"=>$addtional_serv_count, "transaction_details"=>$trans_result);
+    		} else {
+    			$response = array("status" => "error", "msg" => "Service Order List Not found");
+    		}
+    		return $response;
+    	}
+
+    //#################### Detail completed services End ####################//
+
 
 
 

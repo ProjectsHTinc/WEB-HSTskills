@@ -1636,6 +1636,96 @@ class Apivendor extends CI_Controller
 
     //-----------------------------------------------//
 
+        public function upload_service_bills()
+    	{
+    	  	$_POST = json_decode(file_get_contents("php://input"), TRUE);
+
+    		$user_master_id = $this->uri->segment(3);
+    		$service_order_id = $this->uri->segment(4);
+
+    		$document = $_FILES["bill_copy"]["name"];
+    		$extension  = end((explode(".", $document)));
+    		$documentFileName = $service_order_id.'-'.time().'.'.$extension ;
+    		$uploaddir = './assets/bills/';
+    		$documentFile = $uploaddir.$documentFileName;
+    		move_uploaded_file($_FILES['bill_copy']['tmp_name'], $documentFile);
+
+    		$data['result']=$this->apivendormodel->Upload_service_bills($user_master_id,$service_order_id,$documentFileName);
+    		$response = $data['result'];
+    		echo json_encode($response);
+    	}
+
+    //-----------------------------------------------//
+
+    //-----------------------------------------------//
+
+    	public function list_completed_services()
+    	{
+    	   $_POST = json_decode(file_get_contents("php://input"), TRUE);
+
+    		if(!$this->checkMethod())
+    		{
+    			return FALSE;
+    		}
+
+    		if($_POST == FALSE)
+    		{
+    			$res = array();
+    			$res["opn"] = "List Completed services";
+    			$res["scode"] = 204;
+    			$res["message"] = "Input error";
+
+    			echo json_encode($res);
+    			return;
+    		}
+    		$user_master_id = '';
+
+    		$user_master_id  = $this->input->post("user_master_id");
+
+    		$data['result']=$this->apivendormodel->List_completed_services($user_master_id);
+    		$response = $data['result'];
+    		echo json_encode($response);
+    	}
+
+    //-----------------------------------------------//
+
+
+    //-----------------------------------------------//
+
+    	public function detail_completed_services()
+    	{
+    	   $_POST = json_decode(file_get_contents("php://input"), TRUE);
+
+    		if(!$this->checkMethod())
+    		{
+    			return FALSE;
+    		}
+
+    		if($_POST == FALSE)
+    		{
+    			$res = array();
+    			$res["opn"] = "Detail Completed services";
+    			$res["scode"] = 204;
+    			$res["message"] = "Input error";
+
+    			echo json_encode($res);
+    			return;
+    		}
+    		$user_master_id = '';
+    		$service_order_id = '';
+
+    		$user_master_id  = $this->input->post("user_master_id");
+    		$service_order_id  = $this->input->post("service_order_id");
+
+    		$data['result']=$this->apivendormodel->Detail_completed_services($user_master_id,$service_order_id);
+    		$response = $data['result'];
+    		echo json_encode($response);
+    	}
+
+    //-----------------------------------------------//
+
+    //-----------------------------------------------//
+
     public function additional_service_orders()
     {
         $_POST = json_decode(file_get_contents("php://input"), TRUE);
