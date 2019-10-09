@@ -19,7 +19,7 @@
           <?php if($role=='7'|| $role=='6'){ ?>
                 <div class="row">
                   <div class="col-md-12">
-                    <p class="text-center welcome_text">Welcome to SkilEx</p>
+                    <p class="text-center welcome_text">Welcome to TNULM</p>
                   </div>
 
                 </div>
