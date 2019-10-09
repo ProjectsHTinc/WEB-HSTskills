@@ -84,15 +84,15 @@
                          <?php  }else{ ?>
                      <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>home/get_all_staff">Staff</a></li>
                         <?php  } ?>
-                     <!-- <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>home/get_all_provider_list">Commando </a></li> -->
-                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>home/get_all_person_list">Expert </a></li>
+                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>home/get_all_provider_list">Vendor </a></li>
+                     <!-- <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>home/get_all_person_list">Expert </a></li> -->
                      <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>home/get_all_customer_details">Customers </a></li>
                      </ul>
                      </div>
                      <div class="col-group col-md-3">
                        <p class="category-heading">Recent Experts</p>
                        <ul class="submenu-item">
-                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>verifyprocess/get_vendor_verify_list">Expert list </a></li>
+                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>verifyprocess/get_vendor_verify_list">Vendor list </a></li>
                        </ul>
                      </div>
 

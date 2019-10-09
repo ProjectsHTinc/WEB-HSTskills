@@ -15,20 +15,9 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('index');
+		$this->load->view('admin/login');
 	}
-	public function terms()
-	{
-		$this->load->view('terms');
-	}
-	public function privacy()
-	{
-		$this->load->view('privacy');
-	}
-	public function refund()
-	{
-		$this->load->view('refund');
-	}
+
 
 
 	public function login()
@@ -39,7 +28,7 @@ class Welcome extends CI_Controller {
 		if($user_type=="1"){
 			redirect('home/dashboard');
 		}else{
-				$this->load->view('admin/login.php');
+				$this->load->view('admin/login');
 		}
 
 

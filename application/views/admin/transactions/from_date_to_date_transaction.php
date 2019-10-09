@@ -222,8 +222,8 @@ table.dataTable thead th, table.dataTable thead td{
                             <tr>
                               <th>Online Amount</th>
                               <th>Offline amount</th>
-                              <th>Online Skilex commission</th>
-                              <th>Offline skilex commission</th>
+                              <th>Online TNULM commission</th>
+                              <th>Offline TNULM commission</th>
                               <th>Online Commando commission</th>
                               <th>Offline Commando Commission</th>
                               <th>Taxable amount</th>
@@ -254,7 +254,7 @@ table.dataTable thead th, table.dataTable thead td{
                         </div>
                     <div class="row" style="margin-top:0px;">
                       <div class="col-md-2 bor">Amount</div><div class="col-md-2 bor"><p id="amt_from_provider"></p></div>
-                      <div class="col-md-2 bor">Skilex closing status</div><div class="col-md-2 bor"><p id="skilex_closing_status"></p></div>
+                      <div class="col-md-2 bor">TNULM closing status</div><div class="col-md-2 bor"><p id="skilex_closing_status"></p></div>
                       <div class="col-md-2 bor">Commando Closing status</div><div class="col-md-2 bor"><p id="serv_prov_closing_status"></p></div>
                       <div class="col-md-2 bor">Transaction notes</div><div class="col-md-2 bor"><p id="transaction_notes"></p></div>
                       <div class="col-md-2 bor">Order id</div><div class="col-md-2 bor"><p id="order_id"></p></div>
