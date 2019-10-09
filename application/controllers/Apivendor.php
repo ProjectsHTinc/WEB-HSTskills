@@ -1556,7 +1556,7 @@ class Apivendor extends CI_Controller
     		$service_order_id  = $this->input->post("service_order_id");
     		$service_otp = $this->input->post("service_otp");
 
-    		$data['result']=$this->apispersonmodel->Start_services($user_master_id,$service_order_id,$service_otp);
+    		$data['result']=$this->apivendormodel->Start_services($user_master_id,$service_order_id,$service_otp);
     		$response = $data['result'];
     		echo json_encode($response);
     	}
