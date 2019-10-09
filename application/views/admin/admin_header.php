@@ -90,7 +90,7 @@
                      </ul>
                      </div>
                      <div class="col-group col-md-3">
-                       <p class="category-heading">Recent Experts</p>
+                       <p class="category-heading">Recent Vendor</p>
                        <ul class="submenu-item">
                          <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>verifyprocess/get_vendor_verify_list">Vendor list </a></li>
                        </ul>
@@ -145,7 +145,7 @@
                   <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>transaction/daily_transaction">Daily transaction</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>transaction/day_wise_transaction">Date wise transaction</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>transaction/from_date_and_to_date_transactions">From & To date </a></li>
-                  <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>transaction/provider_based_transaction">Expert transactions</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>transaction/provider_based_transaction">Vendor transactions</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>transaction/online_payment_history">Online Payment History</a></li>
 
                 </li>
