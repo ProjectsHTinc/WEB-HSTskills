@@ -2417,54 +2417,7 @@ return $response;
     //#################### Additional service orders End ####################//
 
 
-    //#################### List completed services ####################//
 
-    public function List_completed_services($user_master_id)
-    {
-        $sQuery         = "SELECT
-					A.id,
-					A.service_location,
-					DATE_FORMAT(A.order_date, '%W %M %e %Y') as order_date,
-					A.status,
-					B.main_cat_name,
-					B.main_cat_ta_name,
-					C.sub_cat_name,
-					C.sub_cat_ta_name,
-					D.service_name,
-					D.service_ta_name,
-					E.from_time,
-					E.to_time,
-					F.full_name AS service_person,
-					G.rating
-				FROM
-					service_orders A,
-					main_category B,
-					sub_category C,
-					services D,
-					service_timeslot E,
-					service_person_details F,
-					service_reviews G
-				WHERE
-					 A.serv_prov_id = '" . $user_master_id . "' AND A.status = 'Completed' AND A.`main_cat_id` = B.id AND A.`sub_cat_id` = C.id AND A.`service_id` = D.id AND A.`order_timeslot` = E.id AND A.serv_pers_id = F.user_master_id AND G.service_order_id = A.id";
-        $serv_result    = $this->db->query($sQuery);
-        $service_result = $serv_result->result();
-
-        if ($serv_result->num_rows() > 0) {
-            $response = array(
-                "status" => "success",
-                "msg" => "Service Order List",
-                "list_services_order" => $service_result
-            );
-        } else {
-            $response = array(
-                "status" => "error",
-                "msg" => "Service Order List Not found"
-            );
-        }
-        return $response;
-    }
-
-    //#################### List completed services End ####################//
 
 
     //#################### Detail completed services ####################//
