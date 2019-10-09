@@ -1562,6 +1562,42 @@ class Apivendor extends CI_Controller
     	}
 
     //-----------------------------------------------//
+    //-----------------------------------------------//
+
+    	public function update_ongoing_services()
+    	{
+    	   $_POST = json_decode(file_get_contents("php://input"), TRUE);
+
+    		if(!$this->checkMethod())
+    		{
+    			return FALSE;
+    		}
+
+    		if($_POST == FALSE)
+    		{
+    			$res = array();
+    			$res["opn"] = "Update Ongoing Services";
+    			$res["scode"] = 204;
+    			$res["message"] = "Input error";
+
+    			echo json_encode($res);
+    			return;
+    		}
+
+    		$user_master_id  = '';
+    		$service_order_id  = '';
+    		$material_notes ='';
+
+    		$user_master_id  = $this->input->post("user_master_id");
+    		$service_order_id  = $this->input->post("service_order_id");
+    		$material_notes  = $this->input->post("material_notes");
+
+    		$data['result']=$this->apivendormodel->Update_ongoing_services($user_master_id,$service_order_id,$material_notes);
+    		$response = $data['result'];
+    		echo json_encode($response);
+    	}
+
+    //-----------------------------------------------//
 
 
 

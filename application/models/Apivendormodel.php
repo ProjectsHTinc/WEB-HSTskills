@@ -2141,6 +2141,25 @@ return $response;
     	}
     //#################### Start services End ####################//
 
+    //#################### Update ongoing services ####################//
+
+    	public function Update_ongoing_services($user_master_id,$service_order_id,$material_notes)
+    	{
+    		$update_sql = "UPDATE service_orders SET material_notes = '".$material_notes."', updated_by  = '".$user_master_id."', updated_at =NOW() WHERE id ='".$service_order_id."'";
+    		$update_result = $this->db->query($update_sql);
+
+    		if($update_result)
+    		{
+    			$response = array("status" => "success", "msg" => "Service Order Updated");
+    		} else {
+    			$response = array("status" => "error", "msg" => "Something Wrong");
+    		}
+
+    		return $response;
+    	}
+
+    //#################### Additional service remove End ####################//
+
     //#################### Additional service orders ####################//
 
     public function Additional_service_orders($service_order_id)
