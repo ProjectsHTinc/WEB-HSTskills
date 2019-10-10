@@ -188,8 +188,9 @@ class Apicustomermodel extends CI_Model {
 			 $insert_query = "INSERT INTO customer_details (user_master_id, status) VALUES ('". $user_master_id . "','Active')";
              $insert_result = $this->db->query($insert_query);
 		}
-    $message_details = "Your TNULM Verification code is: ".$OTP." 0q8GrbcslWk";
-    $this->sendSMS($phone_no,$message_details);    
+    // $message_details = "Your TNULM Verification code is: ".$OTP." 0q8GrbcslWk";
+    $message_details = "Your TNULM Verification code is: ".$OTP."";
+    $this->sendSMS($phone_no,$message_details);
 		$response = array("status" => "success", "msg" => "Mobile OTP","msg_en"=>"","msg_ta"=>"","user_master_id"=>$user_master_id, "phone_no"=>$phone_no, "otp"=>$OTP);
 		return $response;
 	}
